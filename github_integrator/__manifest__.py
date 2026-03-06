@@ -1,6 +1,6 @@
 {
 
- "name": "Project Calendar Dependent Filters",
+ "name": "Github odoo integrator",
     "version": "18.0.1.0.0",
     "summary": "Project-based calendar filters with dependent assignee (Many2many) filters",
     "description": """
