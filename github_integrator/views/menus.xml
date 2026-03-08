@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="github_menu" name="GitHub"/>
+        <menuitem id="github_repository" name="Repository" action="github_repository_action_view" parent="github_menu" sequence="1"/>
+        <menuitem id="configurations" name="Configurations" parent="github_menu" sequence="2"/>
+        <menuitem id="github_configuration" parent="configurations" sequence="1" action="github_integrator_action"/>
+
+    </data>
+</odoo>

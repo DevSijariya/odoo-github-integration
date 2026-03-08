@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Integrator</title>
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --muted: #5b6472;
+            --primary: #0f6acb;
+            --accent: #0f766e;
+            --border: #e6e9ef;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 28px 18px 34px;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #0f6acb, #0b8f9b);
+            color: #fff;
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 12px 30px rgba(11, 44, 91, 0.18);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            margin: 12px 0 0;
+            font-size: 16px;
+            opacity: 0.96;
+            max-width: 840px;
+        }
+
+        .card {
+            margin-top: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            color: var(--primary);
+            font-size: 23px;
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .list li {
+            margin: 10px 0;
+            color: var(--muted);
+        }
+
+        .icon {
+            display: inline-block;
+            min-width: 28px;
+            text-align: center;
+            margin-right: 7px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .shot {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .shot img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #f7fafc;
+            padding: 10px;
+        }
+
+        .shot .cap {
+            padding: 10px 12px;
+            font-size: 14px;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        .step {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            padding: 14px;
+        }
+
+        .step h3 {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .step p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .foot {
+            margin-top: 18px;
+            color: #6b7280;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="hero">
+            <h1>GitHub Integrator</h1>
+            <p>
+                Connect your GitHub account to Odoo and manage repositories, branches,
+                commits, issues, and collaborators in one place. Keep development activity
+                visible for project and operations teams inside Odoo.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Module Functionality</h2>
+            <ul class="list">
+                <li><span class="icon">&#128279;</span>Authenticate with GitHub API using personal access token and username.</li>
+                <li><span class="icon">&#128260;</span>Sync repository data into Odoo with selectable sync controls.</li>
+                <li><span class="icon">&#127807;</span>Fetch branches and commit history with optional commit detail sync.</li>
+                <li><span class="icon">&#128221;</span>Track GitHub issues and collaborators directly on each repository record.</li>
+                <li><span class="icon">&#128736;</span>Use sync performance options: threading, timeout, delays, and item limits.</li>
+                <li><span class="icon">&#128193;</span>Create linked Odoo projects from repositories for development workflow alignment.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Key Features</h2>
+            <ul class="list">
+                <li><span class="icon">&#9989;</span>One-click full synchronization from GitHub into dedicated Odoo models.</li>
+                <li><span class="icon">&#9989;</span>Repository-level actions to view branches, commits, issues, and collaborators.</li>
+                <li><span class="icon">&#9989;</span>Open repository directly in GitHub from Odoo form view.</li>
+                <li><span class="icon">&#9989;</span>Sync status tracking with last sync timestamp for monitoring.</li>
+                <li><span class="icon">&#9989;</span>Pagination-aware data collection for large repositories and accounts.</li>
+                <li><span class="icon">&#9989;</span>Project integration via linked `project.project` records.</li>
+            </ul>
+        </section>
+
+       
+            <h2>Workflow Steps</h2>
+            
+                <div class="step">
+                    <h3>Step 1: Configure GitHub Integration</h3>
+                    <p>Enter GitHub API URL, access token, username, and sync options, then save configuration.</p>
+                    <div class="shot">
+                        <img src="../img/github_integration_page.png" alt="GitHub Integration Page" />
+                        <div class="cap">Configuration screen for GitHub authentication and sync settings.</div>
+                    </div>
+                </div>
+            <br/>
+                <div class="step">
+                    <h3>Step 2: Sync and Review Repositories</h3>
+                    <p>Run sync to import repositories and open repository forms to review metadata and actions.</p>
+                    <div class="shot">
+                        <img src="../img/repository_form_view.png" alt="Repository Form View" />
+                        <div class="cap">Repository form with sync status, links, and related actions.</div>
+                    </div>
+                </div>
+<br/>
+                <div class="step">
+                    <h3>Step 3: Monitor Repository Data</h3>
+                    <p>Track repository-level details, last updates, counts, and quick navigation from overview pages.</p>
+                    <div class="shot">
+                        <img src="../img/github_page.png" alt="Repository Overview" />
+                        <div class="cap">Repository overview page for monitoring synced GitHub information.</div>
+                    </div>
+                </div>
+<br/>
+                <div class="step">
+                    <h3>Step 4: Analyze Branches and Related Records</h3>
+                    <p>Open branch, commit, issue, and collaborator views to inspect development activity in detail.</p>
+                    <div class="shot">
+                        <img src="../img/brranches.png" alt="Branches View" />
+                        <div class="cap">Branches view connected to commits, issues, and collaborators.</div>
+                    </div>
+                </div>
+
+<br/>
+                <div class="step">
+                    <h3>Step 5: Create Linked Odoo Project</h3>
+                    <p>Create and link an Odoo project from the repository so development and project execution stay connected.</p>
+                    <div class="shot">
+                        <img src="../img/project.png" alt="Linked Project View" />
+                        <div class="cap">Project view linked with GitHub repository for end-to-end workflow tracking.</div>
+                    </div>
+                </div>
+            
+<br/>
+
+        <p class="foot">Compatible with Odoo environments using Project app integration.</p>
+    </div>
+</body>
+</html>

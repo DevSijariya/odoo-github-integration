@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="github_repository_list_view" model="ir.ui.view">
+            <field name="name">GitHub Repository</field>
+            <field name="model">github.repository</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="full_name"/>
+                    <field name="primary_lanaguage"/>
+                    <field name="default_branch"/>
+                    <field name="stars"/>
+                    <field name="forks"/>
+                    <field name="open_issues"/>
+                    <field name="total_commits"/>
+                    <field name="total_branches"/>
+                    <field name="total_pull_requests"/>
+                    <field name="total_contributors"/>
+                    <field name="repository_url"/>
+                    <field name="is_private"/>
+                    <field name="last_updated"/>
+                    <field name="integrator_id"/>
+                    <field name="sync_status"/>
+                </list>
+            </field>
+        </record>
+        <record id="github_repository_form_view" model="ir.ui.view">
+            <field name="name">GitHub Repository</field>
+            <field name="model">github.repository</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_sync_repository"
+                                string="Sync Repository"
+                                type="object"
+                                class="btn-primary"/>
+                        <button name="action_open_in_github"
+                                string="Open in GitHub"
+                                type="object"/>
+                        <button name="action_create_project"
+                                string="Create Project"
+                                type="object"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_branches" icon="fa-code-fork">
+                                <field name="total_branches" widget="statinfo" string="Branches"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_commits" icon="fa-code">
+                                <field name="total_commits" widget="statinfo" string="Commits"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_issues" icon="fa-bug">
+                                <field name="open_issues" widget="statinfo" string="Issues"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_collaborators" icon="fa-users">
+                                <field name="total_contributors" widget="statinfo" string="Collaborators"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="full_name"/>
+                                <field name="integrator_id"/>
+                                <field name="description"/>
+                                <field name="primary_lanaguage"/>
+                                <field name="default_branch"/>
+                                <field name="is_private"/>
+                                <field name="is_fork"/>
+                                <field name="repository_url"/>
+                                <field name="clone_url"/>
+                                <field name="ssh_url"/>
+                                <field name="linked_project_id"/>
+                            </group>
+                            <group>
+                                <field name="stars"/>
+                                <field name="forks"/>
+                                <field name="open_issues"/>
+                                <field name="repository_size_kb"/>
+                                <field name="total_branches"/>
+                                <field name="total_commits"/>
+                                <field name="total_pull_requests"/>
+                                <field name="total_contributors"/>
+                                <field name="last_updated"/>
+                                <field name="sync_status"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Branches">
+                                <field name="branch_ids" nolabel="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="is_default"/>
+                                        <field name="is_protected"/>
+                                        <field name="last_commit_author"/>
+                                        <field name="last_commit_date"/>
+                                        <field name="total_commits"/>
+                                        <field name="last_commit_sha"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Commits">
+                                <field name="commit_ids" nolabel="1">
+                                    <list>
+                                        <field name="short_sha"/>
+                                        <field name="message"/>
+                                        <field name="author_name"/>
+                                        <field name="author_login"/>
+                                        <field name="branch_name"/>
+                                        <field name="commit_date"/>
+                                        <field name="commit_url"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Issues">
+                                <field name="issue_ids" nolabel="1">
+                                    <list>
+                                        <field name="issue_number"/>
+                                        <field name="title"/>
+                                        <field name="state"/>
+                                        <field name="author_login"/>
+                                        <field name="created_at"/>
+                                        <field name="updated_at"/>
+                                        <field name="linked_task_id"/>
+                                        <field name="issue_url"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Collaborators">
+                                <field name="collaborator_ids" nolabel="1">
+                                    <list>
+                                        <field name="login"/>
+                                        <field name="name"/>
+                                        <field name="is_admin"/>
+                                        <field name="can_push"/>
+                                        <field name="can_pull"/>
+                                        <field name="profile_url"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Sync Info">
+                                <field name="sync_log_ids" nolabel="1" readonly="1">
+                                    <list>
+                                        <field name="sync_time"/>
+                                        <field name="status"/>
+                                        <field name="details"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="github_repository_action_view" model="ir.actions.act_window">
+            <field name="name">GitHub Repository</field>
+            <field name="res_model">github.repository</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

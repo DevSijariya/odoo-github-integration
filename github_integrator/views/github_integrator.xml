@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="github_integrator_conf_list_view" model="ir.ui.view">
+            <field name="name">GitHub Integrator</field>
+            <field name="model">github.integrator</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="username"/>
+                    <field name="repository"/>
+                    <field name="sync_status"/>
+                    <field name="last_sync_at"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="github_integrator_conf_form_view" model="ir.ui.view">
+            <field name="name">GitHub Integrator</field>
+            <field name="model">github.integrator</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="test_github_connection"
+                                string="Test Connection"
+                                type="object"
+                                class="btn-primary"/>
+                        <button name="action_sync_all_data"
+                                string="Sync All Data"
+                                type="object"/>
+                        <button name="action_clear_cache"
+                                string="Clear Cache"
+                                type="object"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_repositories"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-github">
+                                <field name="repository" widget="statinfo"
+                                    string="Repositories"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="url"/>
+                                <field name="access_token" password="True"/>
+                                <field name="username"/>
+                                <field name="active_repo"/>
+                                <field name="sync_status" readonly="1"/>
+                                <field name="last_sync_at" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="auto_sync"/>
+                                <field name="sync_repositories"/>
+                                <field name="sync_branches"/>
+                                <field name="sync_commits"/>
+                                <field name="sync_issues"/>
+                                <field name="sync_collaborators"/>
+                            </group>
+                        </group>
+                        <group string="Multi-Threading &amp; Performance">
+                            <group string="Multi-Threading Settings">
+                                <field name="enable_multithreading"/>
+                                <field name="max_worker_threads"/>
+                                <field name="thread_delay"/>
+                            </group>
+                            <group string="Performance Settings">
+                                <field name="commit_limit_per_branch"/>
+                                <field name="branch_limit_per_repository"/>
+                                <field name="sync_timeout"/>
+                                <field name="sync_commit_details"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    </form>
+            </field>
+        </record>
+
+        <record id="github_integrator_action" model="ir.actions.act_window">
+            <field name="name">GitHub Integrator</field>
+            <field name="res_model">github.integrator</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+    </data>
+</odoo>
