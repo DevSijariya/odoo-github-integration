@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_github_integrator,github.integrator,model_github_integrator,,1,1,1,1
+access_github_repository,github.repository,model_github_repository,,1,1,1,1
+access_github_branch,github.branch,model_github_branch,,1,1,1,1
+access_github_commit,github.commit,model_github_commit,,1,1,1,1
+access_github_issue,github.issue,model_github_issue,,1,1,1,1
+access_github_collaborator,github.collaborator,model_github_collaborator,,1,1,1,1
+access_github_sync_log,github.sync.log,model_github_sync_log,,1,1,1,1

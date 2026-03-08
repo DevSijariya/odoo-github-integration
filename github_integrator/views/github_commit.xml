@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="github_commit_list_view" model="ir.ui.view">
+            <field name="name">GitHub Commit</field>
+            <field name="model">github.commit</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="short_sha"/>
+                    <field name="message"/>
+                    <field name="author_name"/>
+                    <field name="author_login"/>
+                    <field name="branch_name"/>
+                    <field name="commit_date"/>
+                    <field name="repository_id"/>
+                    <field name="commit_url"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="github_commit_form_view" model="ir.ui.view">
+            <field name="name">GitHub Commit</field>
+            <field name="model">github.commit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="sha"/>
+                        <field name="short_sha"/>
+                        <field name="message"/>
+                        <field name="author_name"/>
+                        <field name="author_login"/>
+                        <field name="branch_name"/>
+                        <field name="commit_date"/>
+                        <field name="repository_id"/>
+                        <field name="commit_url"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
